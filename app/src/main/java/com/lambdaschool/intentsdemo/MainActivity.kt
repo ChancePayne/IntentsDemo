@@ -8,7 +8,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        public val STRING_DATA_KEY = "PASSED_DATA"
+        const val STRING_DATA_KEY = "PASSED_DATA"
+        const val INT_DATA_KEY = "PASSED_DATA_INT"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +24,12 @@ class MainActivity : AppCompatActivity() {
         data_intent_button.setOnClickListener {
             val intent = Intent(this, FullscreenActivity::class.java)
             intent.putExtra(STRING_DATA_KEY, "Hello Intents!")
+            startActivity(intent)
+        }
+
+        challenge_intent_button.setOnClickListener {
+            val intent = Intent(this, NewActivity::class.java)
+            intent.putExtra(INT_DATA_KEY, 5)
             startActivity(intent)
         }
     }
